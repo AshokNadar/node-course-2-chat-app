@@ -15,7 +15,24 @@ console.log('new user connected');
 socket.on('disconnect',()=>{
     console.log('user was disconnected ');
 })
+// socket.emit('newEmail',{
+//     from:'a@a.com',
+//     text:'hey whats up',
+//     time:'123'
+// });
 
+socket.emit('newMessage',{
+    from:'a@a.com',
+    text:'hey whats up',
+    time:'123'
+});
+// socket.on('createEmail', function(newEmail){
+//     console.log('  createEmail',newEmail);
+// });
+
+socket.on('createMessage', function(newMessage){
+    console.log('  createMessage',newMessage);
+});
  });
 app.use(express.static(publicPath));
 //app.set('view engine', 'html');
